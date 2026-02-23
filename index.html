@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hinterland Civil Concrete — Expert Concreters in Cairns & Hinterland Region</title>
+<meta name="description" content="Professional concrete services in Cairns & Hinterland Region. Driveways, slabs, formwork, civil works & more. Call Pete on 0459 722 155 for a free quote.">
+<meta name="keywords" content="concreter cairns, concrete cairns, driveways cairns, concrete slabs cairns, formwork cairns, civil concrete cairns, hinterland concrete">
+<meta property="og:title" content="Hinterland Civil Concrete — Expert Concreters in Cairns">
+<meta property="og:description" content="Professional concrete services in Cairns & Hinterland. Driveways, slabs, formwork, civil works. Free quotes — call 0459 722 155.">
+<meta property="og:image" content="logo.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="logos/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: '#11AAD4',
+        dark: '#121516',
+        light: '#FAFAFA',
+        grey: '#5C6970',
+        body: '#171A1C',
+      },
+      fontFamily: {
+        outfit: ['Outfit', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+* { font-family: 'Outfit', sans-serif; }
+html { scroll-behavior: smooth; }
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer.open { max-height: 500px; }
+.faq-chevron { transition: transform 0.3s ease; }
+.faq-chevron.open { transform: rotate(180deg); }
+nav.scrolled { background: rgba(18,21,22,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.hero-bg { background-image: linear-gradient(to bottom, rgba(18,21,22,0.5), rgba(18,21,22,0.8)), url('images/hinterland-civil-project-35.jpg'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh; }
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item img { transition: transform 0.5s ease; }
+
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, #11AAD4, #0ee6b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Glassmorphism stats bar */
+.glass-bar { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); }
+
+/* Services accordion */
+.service-acc-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.3s ease; opacity: 0; }
+.service-acc-content.open { max-height: 600px; opacity: 1; }
+.service-acc-btn.active { border-color: #11AAD4; background: rgba(17,170,212,0.08); }
+.service-acc-btn.active .service-acc-icon { background: #11AAD4; color: white; }
+
+/* Masonry gallery */
+.masonry { columns: 2; column-gap: 1rem; }
+@media (min-width: 1024px) { .masonry { columns: 3; } }
+.masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+
+/* Lightbox */
+.lightbox { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 12px; }
+
+/* Testimonial carousel */
+.testimonial-track { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 1rem; }
+.testimonial-track::-webkit-scrollbar { display: none; }
+.testimonial-card { scroll-snap-align: start; min-width: 340px; max-width: 400px; flex-shrink: 0; }
+@media (max-width: 640px) { .testimonial-card { min-width: 85vw; } }
+
+/* Timeline */
+.timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #11AAD4, #0ee6b7); transform: translateY(-50%); }
+@media (max-width: 768px) { .timeline-line { top: 0; left: 50%; width: 2px; height: 100%; transform: translateX(-50%); } }
+
+/* Parallax sections */
+.parallax-bg { background-attachment: fixed; background-size: cover; background-position: center; }
+@media (max-width: 768px) { .parallax-bg, .hero-bg { background-attachment: scroll; } }
+
+/* CTA dramatic */
+.cta-dramatic { background-image: linear-gradient(135deg, rgba(18,21,22,0.85), rgba(17,170,212,0.6)), url('images/hinterland-civil-project-34.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
+@media (max-width: 768px) { .cta-dramatic { background-attachment: scroll; } }
+
+/* Featured project */
+.featured-project { background-image: linear-gradient(to right, rgba(18,21,22,0.9) 40%, rgba(18,21,22,0.2)), url('images/hinterland-civil-concrete-box-culvert.jpg'); background-size: cover; background-position: center; }
+
+/* Floating quote btn */
+.floating-quote { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; animation: pulse-glow 2s infinite; }
+@keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(17,170,212,0.5); } 50% { box-shadow: 0 0 0 12px rgba(17,170,212,0); } }
+@media (min-width: 1024px) { .floating-quote { display: none; } }
+
+/* Display headings */
+.display-heading { font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; }
+</style>
+</head>
+<body class="bg-light text-body font-outfit">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<a href="#" class="flex items-center gap-3">
+<img src="logos/logo-dark-bg.svg" alt="Hinterland Civil Concrete" class="h-12">
+<span class="text-white font-bold text-lg hidden sm:block">Hinterland Civil Concrete</span>
+</a>
+<div class="hidden lg:flex items-center gap-8">
+<a href="#services" class="text-white/80 hover:text-brand transition text-sm font-medium">Services</a>
+<a href="#about" class="text-white/80 hover:text-brand transition text-sm font-medium">About</a>
+<a href="#projects" class="text-white/80 hover:text-brand transition text-sm font-medium">Projects</a>
+<a href="#testimonials" class="text-white/80 hover:text-brand transition text-sm font-medium">Testimonials</a>
+<a href="#faq" class="text-white/80 hover:text-brand transition text-sm font-medium">FAQ</a>
+<a href="#contact" class="text-white/80 hover:text-brand transition text-sm font-medium">Contact</a>
+<a href="tel:0459722155" class="bg-brand hover:bg-brand/90 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition flex items-center gap-2">
+<i data-lucide="phone" class="w-4 h-4"></i> 0459 722 155
+</a>
+</div>
+<button id="menu-toggle" class="lg:hidden text-white p-2">
+<i data-lucide="menu" class="w-6 h-6"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden lg:hidden bg-dark/98 backdrop-blur-lg border-t border-white/10">
+<div class="px-6 py-6 space-y-4">
+<a href="#services" class="block text-white/80 hover:text-brand transition font-medium mobile-link">Services</a>
+<a href="#about" class="block text-white/80 hover:text-brand transition font-medium mobile-link">About</a>
+<a href="#projects" class="block text-white/80 hover:text-brand transition font-medium mobile-link">Projects</a>
+<a href="#testimonials" class="block text-white/80 hover:text-brand transition font-medium mobile-link">Testimonials</a>
+<a href="#faq" class="block text-white/80 hover:text-brand transition font-medium mobile-link">FAQ</a>
+<a href="#contact" class="block text-white/80 hover:text-brand transition font-medium mobile-link">Contact</a>
+<a href="tel:0459722155" class="block bg-brand text-white text-center px-5 py-3 rounded-lg font-semibold mt-4">Call 0459 722 155</a>
+</div>
+</div>
+</nav>
+
+<!-- Hero with Stats Bar -->
+<section class="hero-bg flex items-center relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
+<div class="max-w-3xl fade-in">
+<div class="inline-flex items-center gap-2 bg-brand/15 border border-brand/30 rounded-full px-4 py-1.5 mb-6">
+<span class="w-2 h-2 bg-brand rounded-full"></span>
+<span class="text-brand text-sm font-medium">Cairns & Hinterland Region</span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-7xl font-900 text-white leading-tight mb-6 display-heading">
+Expert Concreters<br>in <span class="gradient-text">Cairns</span>
+</h1>
+<p class="text-white/70 text-lg sm:text-xl mb-10 max-w-xl leading-relaxed">
+Local family business with 20 years experience. Professional civil concrete services for residential, commercial & infrastructure projects across Far North Queensland.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#contact" class="bg-brand hover:bg-brand/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center">Get a Free Quote</a>
+<a href="tel:0459722155" class="border-2 border-white/25 hover:border-white/50 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center flex items-center justify-center gap-2">
+<i data-lucide="phone" class="w-5 h-5"></i> Call 0459 722 155
+</a>
+</div>
+</div>
+</div>
+<!-- Glassmorphism Stats Bar -->
+<div class="absolute bottom-0 left-0 right-0">
+<div class="glass-bar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 text-center">
+<div class="fade-in">
+<span class="text-3xl lg:text-4xl font-900 text-white counter" data-target="20">0</span><span class="text-3xl lg:text-4xl font-900 text-brand">+</span>
+<p class="text-white/60 text-xs sm:text-sm mt-1">Years Experience</p>
+</div>
+<div class="fade-in">
+<span class="text-3xl lg:text-4xl font-900 text-white counter" data-target="500">0</span><span class="text-3xl lg:text-4xl font-900 text-brand">+</span>
+<p class="text-white/60 text-xs sm:text-sm mt-1">Projects Completed</p>
+</div>
+<div class="fade-in">
+<span class="text-3xl lg:text-4xl font-900 text-white">FNQ</span>
+<p class="text-white/60 text-xs sm:text-sm mt-1">Cairns to Tablelands</p>
+</div>
+<div class="fade-in">
+<span class="text-3xl lg:text-4xl font-900 text-white">100</span><span class="text-3xl lg:text-4xl font-900 text-brand">%</span>
+<p class="text-white/60 text-xs sm:text-sm mt-1">Quality Guaranteed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Why Choose Us -->
+<section id="about" class="py-24 lg:py-32 bg-light">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Why Choose Us</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-body mt-3 display-heading">Built on <span class="gradient-text">Quality</span> &<br>Local Expertise</h2>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition fade-in">
+<div class="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="award" class="w-7 h-7 text-brand"></i></div>
+<h3 class="font-bold text-lg mb-2">Quality Workmanship</h3>
+<p class="text-grey text-sm leading-relaxed">Every pour finished to the highest standard with attention to detail.</p>
+</div>
+<div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition fade-in">
+<div class="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="users" class="w-7 h-7 text-brand"></i></div>
+<h3 class="font-bold text-lg mb-2">Experienced Team</h3>
+<p class="text-grey text-sm leading-relaxed">Skilled concreters and formsetters with over 20 years of civil and residential experience.</p>
+</div>
+<div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition fade-in">
+<div class="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="map-pin" class="w-7 h-7 text-brand"></i></div>
+<h3 class="font-bold text-lg mb-2">Local Expertise</h3>
+<p class="text-grey text-sm leading-relaxed">Deep knowledge of Cairns conditions, soil types & council requirements.</p>
+</div>
+<div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition fade-in">
+<div class="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="compass" class="w-7 h-7 text-brand"></i></div>
+<h3 class="font-bold text-lg mb-2">Regional Coverage</h3>
+<p class="text-grey text-sm leading-relaxed">Servicing Cairns to Atherton Tablelands and remote FNQ locations.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Services - Accordion Style -->
+<section id="services" class="py-24 lg:py-32 bg-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Our Services</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-white mt-3 display-heading">What We <span class="gradient-text">Do</span></h2>
+<p class="text-white/60 mt-4 max-w-2xl mx-auto">Comprehensive concrete solutions for every project size — from residential driveways to large-scale civil infrastructure.</p>
+</div>
+<div class="max-w-3xl mx-auto fade-in">
+<div class="space-y-3">
+<button onclick="openService(0, this)" class="service-acc-btn active w-full text-left bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="service-acc-icon w-12 h-12 bg-brand rounded-xl flex items-center justify-center flex-shrink-0 transition-all"><i data-lucide="building-2" class="w-6 h-6 text-white"></i></div>
+<div class="flex-1">
+<h3 class="text-white font-bold text-xl">Civil Concrete Works</h3>
+<div class="service-acc-content open mt-3">
+<p class="text-white/60 text-sm leading-relaxed mb-3">Foundations, retaining walls, infrastructure projects & footings for residential and commercial builds.</p>
+<ul class="space-y-1.5 text-white/50 text-sm"><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Foundations & footings</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Retaining walls</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Infrastructure</li></ul>
+</div>
+</div>
+<i data-lucide="chevron-down" class="w-5 h-5 text-white/40 flex-shrink-0 faq-chevron open transition-transform"></i>
+</div>
+</button>
+<button onclick="openService(1, this)" class="service-acc-btn w-full text-left bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="service-acc-icon w-12 h-12 bg-brand/15 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"><i data-lucide="columns-3" class="w-6 h-6 text-brand"></i></div>
+<div class="flex-1">
+<h3 class="text-white font-bold text-xl">Formwork & Formsetters</h3>
+<div class="service-acc-content mt-3">
+<p class="text-white/60 text-sm leading-relaxed mb-3">Custom formwork design using steel & timber for even the most complex structural requirements.</p>
+<ul class="space-y-1.5 text-white/50 text-sm"><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Custom formwork design</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Steel & timber</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Complex structures</li></ul>
+</div>
+</div>
+<i data-lucide="chevron-down" class="w-5 h-5 text-white/40 flex-shrink-0 faq-chevron transition-transform"></i>
+</div>
+</button>
+<button onclick="openService(2, this)" class="service-acc-btn w-full text-left bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="service-acc-icon w-12 h-12 bg-brand/15 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"><i data-lucide="home" class="w-6 h-6 text-brand"></i></div>
+<div class="flex-1">
+<h3 class="text-white font-bold text-xl">Concrete Slabs</h3>
+<div class="service-acc-content mt-3">
+<p class="text-white/60 text-sm leading-relaxed mb-3">House slabs, shed & garage floors, and commercial flooring — built to last in tropical conditions.</p>
+<ul class="space-y-1.5 text-white/50 text-sm"><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>House slabs</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Shed & garage floors</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Commercial flooring</li></ul>
+</div>
+</div>
+<i data-lucide="chevron-down" class="w-5 h-5 text-white/40 flex-shrink-0 faq-chevron transition-transform"></i>
+</div>
+</button>
+<button onclick="openService(3, this)" class="service-acc-btn w-full text-left bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="service-acc-icon w-12 h-12 bg-brand/15 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"><i data-lucide="car" class="w-6 h-6 text-brand"></i></div>
+<div class="flex-1">
+<h3 class="text-white font-bold text-xl">Driveways & Pathways</h3>
+<div class="service-acc-content mt-3">
+<p class="text-white/60 text-sm leading-relaxed mb-3">Exposed aggregate, coloured concrete, brushed & stamped finishes to enhance your property.</p>
+<ul class="space-y-1.5 text-white/50 text-sm"><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Exposed aggregate</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Coloured & stamped</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Brushed finish</li></ul>
+</div>
+</div>
+<i data-lucide="chevron-down" class="w-5 h-5 text-white/40 flex-shrink-0 faq-chevron transition-transform"></i>
+</div>
+</button>
+<button onclick="openService(4, this)" class="service-acc-btn w-full text-left bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="service-acc-icon w-12 h-12 bg-brand/15 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"><i data-lucide="hard-hat" class="w-6 h-6 text-brand"></i></div>
+<div class="flex-1">
+<h3 class="text-white font-bold text-xl">Commercial Projects</h3>
+<div class="service-acc-content mt-3">
+<p class="text-white/60 text-sm leading-relaxed mb-3">Full-scale concrete solutions for businesses, developers & construction companies across FNQ.</p>
+<ul class="space-y-1.5 text-white/50 text-sm"><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Businesses & developers</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Construction companies</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Large-scale works</li></ul>
+</div>
+</div>
+<i data-lucide="chevron-down" class="w-5 h-5 text-white/40 flex-shrink-0 faq-chevron transition-transform"></i>
+</div>
+</button>
+<button onclick="openService(5, this)" class="service-acc-btn w-full text-left bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="service-acc-icon w-12 h-12 bg-brand/15 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"><i data-lucide="mountain" class="w-6 h-6 text-brand"></i></div>
+<div class="flex-1">
+<h3 class="text-white font-bold text-xl">Remote & Regional Work</h3>
+<div class="service-acc-content mt-3">
+<p class="text-white/60 text-sm leading-relaxed mb-3">Equipped and experienced to deliver quality concrete work in remote Far North QLD locations.</p>
+<ul class="space-y-1.5 text-white/50 text-sm"><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Far North QLD</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Remote areas</li><li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand"></i>Regional projects</li></ul>
+</div>
+</div>
+<i data-lucide="chevron-down" class="w-5 h-5 text-white/40 flex-shrink-0 faq-chevron transition-transform"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How We Work - Horizontal Timeline -->
+<section class="py-24 lg:py-32 bg-light overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Our Process</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-body mt-3 display-heading">How We <span class="gradient-text">Work</span></h2>
+</div>
+<!-- Desktop horizontal timeline -->
+<div class="hidden md:block relative fade-in">
+<div class="timeline-line"></div>
+<div class="grid grid-cols-4 gap-8 relative z-10">
+<div class="text-center pt-12">
+<div class="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold shadow-lg shadow-brand/30 relative -top-12 border-4 border-light">1</div>
+<h3 class="font-bold text-lg mb-2 -mt-8">Consultation</h3>
+<p class="text-grey text-sm leading-relaxed">Tell us about your project. We'll discuss your needs, timeline and budget.</p>
+</div>
+<div class="text-center pt-12">
+<div class="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold shadow-lg shadow-brand/30 relative -top-12 border-4 border-light">2</div>
+<h3 class="font-bold text-lg mb-2 -mt-8">Site Assessment</h3>
+<p class="text-grey text-sm leading-relaxed">We visit your site to assess conditions, access and specific requirements.</p>
+</div>
+<div class="text-center pt-12">
+<div class="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold shadow-lg shadow-brand/30 relative -top-12 border-4 border-light">3</div>
+<h3 class="font-bold text-lg mb-2 -mt-8">Quote & Planning</h3>
+<p class="text-grey text-sm leading-relaxed">You receive a detailed, transparent quote with a clear project plan.</p>
+</div>
+<div class="text-center pt-12">
+<div class="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-bold shadow-lg shadow-brand/30 relative -top-12 border-4 border-light">4</div>
+<h3 class="font-bold text-lg mb-2 -mt-8">Quality Execution</h3>
+<p class="text-grey text-sm leading-relaxed">Our team delivers on time, on budget, with exceptional workmanship.</p>
+</div>
+</div>
+</div>
+<!-- Mobile vertical timeline -->
+<div class="md:hidden relative fade-in pl-12">
+<div class="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand to-emerald-400"></div>
+<div class="space-y-10">
+<div class="relative">
+<div class="absolute -left-12 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold shadow-lg shadow-brand/30 border-4 border-light">1</div>
+<h3 class="font-bold text-lg mb-1">Consultation</h3>
+<p class="text-grey text-sm leading-relaxed">Tell us about your project. We'll discuss your needs, timeline and budget.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-12 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold shadow-lg shadow-brand/30 border-4 border-light">2</div>
+<h3 class="font-bold text-lg mb-1">Site Assessment</h3>
+<p class="text-grey text-sm leading-relaxed">We visit your site to assess conditions, access and specific requirements.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-12 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold shadow-lg shadow-brand/30 border-4 border-light">3</div>
+<h3 class="font-bold text-lg mb-1">Quote & Planning</h3>
+<p class="text-grey text-sm leading-relaxed">You receive a detailed, transparent quote with a clear project plan.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-12 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold shadow-lg shadow-brand/30 border-4 border-light">4</div>
+<h3 class="font-bold text-lg mb-1">Quality Execution</h3>
+<p class="text-grey text-sm leading-relaxed">Our team delivers on time, on budget, with exceptional workmanship.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Featured Project -->
+<section class="featured-project py-24 lg:py-32 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-xl fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Featured Project</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-white mt-3 mb-6 display-heading">Tablelands <span class="gradient-text">Infrastructure</span> Build</h2>
+<div class="glass-bar rounded-2xl p-6 space-y-4">
+<div class="flex items-center gap-3">
+<i data-lucide="map-pin" class="w-5 h-5 text-brand flex-shrink-0"></i>
+<div><p class="text-white/50 text-xs uppercase tracking-wider">Location</p><p class="text-white font-semibold">Atherton Tablelands, FNQ</p></div>
+</div>
+<div class="flex items-center gap-3">
+<i data-lucide="ruler" class="w-5 h-5 text-brand flex-shrink-0"></i>
+<div><p class="text-white/50 text-xs uppercase tracking-wider">Scope</p><p class="text-white font-semibold">Civil concrete, foundations & formwork</p></div>
+</div>
+<div class="flex items-center gap-3">
+<i data-lucide="calendar" class="w-5 h-5 text-brand flex-shrink-0"></i>
+<div><p class="text-white/50 text-xs uppercase tracking-wider">Completed</p><p class="text-white font-semibold">2024</p></div>
+</div>
+</div>
+<a href="#contact" class="inline-flex items-center gap-2 bg-brand hover:bg-brand/90 text-white px-6 py-3 rounded-xl font-semibold mt-6 transition">
+Start Your Project <i data-lucide="arrow-right" class="w-5 h-5"></i>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Projects Gallery - Masonry + Lightbox -->
+<section id="projects" class="py-24 lg:py-32 bg-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Our Work</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-white mt-3 display-heading">Project <span class="gradient-text">Gallery</span></h2>
+</div>
+<div class="masonry fade-in">
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-concrete-road-pour.jpg" alt="Concrete project by Hinterland Civil" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer aspect-[3/4]" onclick="openLightbox(this)"><img src="images/hinterland-civil-worker-finishing-slab.jpg" alt="Civil concrete works Cairns" class="w-full h-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-box-culvert-installation.jpg" alt="Construction site Hinterland" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer aspect-[4/5]" onclick="openLightbox(this)"><img src="images/hinterland-civil-project-28.jpg" alt="Hinterland Civil project" class="w-full h-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-project-16.jpg" alt="Concrete slab construction" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer aspect-[3/4]" onclick="openLightbox(this)"><img src="images/hinterland-civil-reinforced-slab-foundation.jpg" alt="Formwork and concrete pour" class="w-full h-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-project-07.jpg" alt="Hinterland Civil concrete work" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-concrete-pour-finish.jpg" alt="Completed concrete project" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer aspect-[4/5]" onclick="openLightbox(this)"><img src="images/hinterland-civil-fresh-concrete-slab.jpg" alt="Driveway concrete work" class="w-full h-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-project-15.jpg" alt="Hinterland Civil FNQ project" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox(this)"><img src="images/hinterland-civil-freshly-poured-road.jpg" alt="Commercial concrete Cairns" class="w-full object-cover" loading="lazy"></div></div>
+<div class="masonry-item"><div class="gallery-item rounded-2xl overflow-hidden cursor-pointer aspect-[3/4]" onclick="openLightbox(this)"><img src="images/hinterland-civil-freshly-poured-driveway.jpg" alt="Residential concrete project" class="w-full h-full object-cover" loading="lazy"></div></div>
+</div>
+</div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+<button class="absolute top-6 right-6 text-white/70 hover:text-white transition" onclick="closeLightbox()"><i data-lucide="x" class="w-8 h-8"></i></button>
+<img id="lightbox-img" src="" alt="Gallery image enlarged">
+</div>
+
+<!-- Testimonials - Horizontal Carousel -->
+<section id="testimonials" class="py-24 lg:py-32 bg-light">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Testimonials</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-body mt-3 display-heading">What Our <span class="gradient-text">Clients</span> Say</h2>
+</div>
+<div class="testimonial-track fade-in">
+<div class="testimonial-card bg-white rounded-2xl p-8 shadow-sm">
+<div class="flex gap-1 mb-4">
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+</div>
+<p class="text-grey leading-relaxed mb-6">"Peter and his team did an outstanding job on our driveway. Professional from start to finish and the quality is exceptional."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-brand/15 rounded-full flex items-center justify-center"><span class="text-brand font-bold text-sm">MT</span></div>
+<div><p class="font-semibold text-sm">Mark T.</p><p class="text-grey text-xs">Cairns</p></div>
+</div>
+</div>
+<div class="testimonial-card bg-white rounded-2xl p-8 shadow-sm">
+<div class="flex gap-1 mb-4">
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+</div>
+<p class="text-grey leading-relaxed mb-6">"Excellent work on our house slab. They handled the remote location with no issues and delivered on time. Highly recommend."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-brand/15 rounded-full flex items-center justify-center"><span class="text-brand font-bold text-sm">SL</span></div>
+<div><p class="font-semibold text-sm">Sarah L.</p><p class="text-grey text-xs">Atherton</p></div>
+</div>
+</div>
+<div class="testimonial-card bg-white rounded-2xl p-8 shadow-sm">
+<div class="flex gap-1 mb-4">
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+<i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+</div>
+<p class="text-grey leading-relaxed mb-6">"Used Hinterland Civil for a commercial project. Great communication throughout and the finished product speaks for itself."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-brand/15 rounded-full flex items-center justify-center"><span class="text-brand font-bold text-sm">JR</span></div>
+<div><p class="font-semibold text-sm">James R.</p><p class="text-grey text-xs">Mareeba</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- What to Expect -->
+<section class="py-24 lg:py-32 bg-dark parallax-bg" style="background-image: linear-gradient(rgba(18,21,22,0.95), rgba(18,21,22,0.95)), url('images/hinterland-civil-box-culvert-installation.jpg');">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Our Promise</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-white mt-3 display-heading">What to <span class="gradient-text">Expect</span></h2>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="text-center fade-in">
+<div class="w-14 h-14 bg-brand/15 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="message-circle" class="w-7 h-7 text-brand"></i></div>
+<h3 class="text-white font-bold text-lg mb-2">Clear Communication</h3>
+<p class="text-white/60 text-sm leading-relaxed">Regular updates at every stage so you always know what's happening.</p>
+</div>
+<div class="text-center fade-in">
+<div class="w-14 h-14 bg-brand/15 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="shield-check" class="w-7 h-7 text-brand"></i></div>
+<h3 class="text-white font-bold text-lg mb-2">Professional Team</h3>
+<p class="text-white/60 text-sm leading-relaxed">Experienced, licensed tradespeople who take pride in their work.</p>
+</div>
+<div class="text-center fade-in">
+<div class="w-14 h-14 bg-brand/15 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="gem" class="w-7 h-7 text-brand"></i></div>
+<h3 class="text-white font-bold text-lg mb-2">Quality Materials</h3>
+<p class="text-white/60 text-sm leading-relaxed">We use only premium-grade concrete and materials built for FNQ conditions.</p>
+</div>
+<div class="text-center fade-in">
+<div class="w-14 h-14 bg-brand/15 rounded-xl flex items-center justify-center mx-auto mb-5"><i data-lucide="sparkles" class="w-7 h-7 text-brand"></i></div>
+<h3 class="text-white font-bold text-lg mb-2">Site Cleanliness</h3>
+<p class="text-white/60 text-sm leading-relaxed">We leave your site clean and tidy — every time, guaranteed.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 lg:py-32 bg-light">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">FAQ</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-body mt-3 display-heading">Common <span class="gradient-text">Questions</span></h2>
+</div>
+<div class="space-y-3 fade-in">
+<div class="bg-white rounded-xl overflow-hidden shadow-sm">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left font-semibold hover:text-brand transition">
+How long does a concrete driveway take?
+<i data-lucide="chevron-down" class="w-5 h-5 text-grey faq-chevron flex-shrink-0"></i>
+</button>
+<div class="faq-answer px-6"><p class="pb-6 text-grey text-sm leading-relaxed">Most residential driveways take 2–5 days depending on size and complexity. This includes preparation, formwork, pouring and finishing. We'll provide a clear timeline during the quote stage.</p></div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden shadow-sm">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left font-semibold hover:text-brand transition">
+Do you work in remote areas of FNQ?
+<i data-lucide="chevron-down" class="w-5 h-5 text-grey faq-chevron flex-shrink-0"></i>
+</button>
+<div class="faq-answer px-6"><p class="pb-6 text-grey text-sm leading-relaxed">Absolutely. We regularly service remote and regional areas across Far North Queensland including the Atherton Tablelands, Mareeba, and beyond. We're set up to handle the logistics of remote work.</p></div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden shadow-sm">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left font-semibold hover:text-brand transition">
+What types of concrete finishes do you offer?
+<i data-lucide="chevron-down" class="w-5 h-5 text-grey faq-chevron flex-shrink-0"></i>
+</button>
+<div class="faq-answer px-6"><p class="pb-6 text-grey text-sm leading-relaxed">We offer exposed aggregate, coloured concrete, brushed finish, stamped concrete, and standard smooth finish. We can help you choose the best option for your project and budget.</p></div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden shadow-sm">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left font-semibold hover:text-brand transition">
+How do I get a quote?
+<i data-lucide="chevron-down" class="w-5 h-5 text-grey faq-chevron flex-shrink-0"></i>
+</button>
+<div class="faq-answer px-6"><p class="pb-6 text-grey text-sm leading-relaxed">Simply give Pete a call on 0459 722 155 or send an email to hinterlandcivilcairns@outlook.com. We'll arrange a site visit and provide a detailed, no-obligation quote.</p></div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden shadow-sm">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left font-semibold hover:text-brand transition">
+How long should concrete cure before use?
+<i data-lucide="chevron-down" class="w-5 h-5 text-grey faq-chevron flex-shrink-0"></i>
+</button>
+<div class="faq-answer px-6"><p class="pb-6 text-grey text-sm leading-relaxed">Concrete typically needs 24–48 hours before foot traffic and 7 days before vehicle traffic. Full cure strength is reached at approximately 28 days. We'll guide you on the specific requirements for your project.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Service Areas -->
+<section class="py-24 lg:py-32 bg-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<span class="text-brand font-semibold text-sm tracking-widest uppercase">Service Areas</span>
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-white mt-3 display-heading">Where We <span class="gradient-text">Work</span></h2>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+<div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center"><i data-lucide="map-pin" class="w-5 h-5 text-brand mx-auto mb-3"></i><h3 class="text-white font-semibold">Cairns</h3><p class="text-white/50 text-sm mt-1">CBD & suburbs</p></div>
+<div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center"><i data-lucide="map-pin" class="w-5 h-5 text-brand mx-auto mb-3"></i><h3 class="text-white font-semibold">Atherton Tablelands</h3><p class="text-white/50 text-sm mt-1">Atherton, Mareeba, Kuranda</p></div>
+<div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center"><i data-lucide="map-pin" class="w-5 h-5 text-brand mx-auto mb-3"></i><h3 class="text-white font-semibold">Hinterland Region</h3><p class="text-white/50 text-sm mt-1">Gordonvale, Babinda & surrounds</p></div>
+<div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center"><i data-lucide="map-pin" class="w-5 h-5 text-brand mx-auto mb-3"></i><h3 class="text-white font-semibold">Remote & Regional</h3><p class="text-white/50 text-sm mt-1">Far North QLD wide</p></div>
+</div>
+</div>
+</section>
+
+<!-- CTA - Dramatic with background image -->
+<section id="contact" class="cta-dramatic py-32 lg:py-44 relative overflow-hidden">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 fade-in">
+<h2 class="text-4xl sm:text-5xl lg:text-7xl font-900 text-white mb-6 display-heading">Ready to Start<br>Your <span class="gradient-text">Project</span>?</h2>
+<p class="text-white/80 text-lg sm:text-xl mb-10 max-w-2xl mx-auto">Get in touch with Pete for a free, no-obligation quote. We're ready to bring your concrete project to life.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="mailto:hinterlandcivilcairns@outlook.com" class="bg-white text-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/90 transition shadow-xl">Get a Free Quote</a>
+<a href="tel:0459722155" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition flex items-center justify-center gap-2">
+<i data-lucide="phone" class="w-5 h-5"></i> Call 0459 722 155
+</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark py-16 lg:py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+<div>
+<div class="flex items-center gap-3 mb-5">
+<img src="logos/logo-dark-bg.svg" alt="Hinterland Civil Concrete" class="h-10">
+<span class="text-white font-bold">Hinterland Civil</span>
+</div>
+<p class="text-white/50 text-sm leading-relaxed mb-4">Professional concrete services across Cairns and the Hinterland Region. Quality workmanship you can trust.</p>
+<a href="https://www.facebook.com/people/Hinterland-Civil-Concrete/61556033259349/" target="_blank" class="text-brand text-sm hover:underline">Follow us on Facebook</a>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-4">Services</h4>
+<ul class="space-y-2 text-white/50 text-sm">
+<li>Civil Concrete Works</li>
+<li>Formwork & Formsetters</li>
+<li>Concrete Slabs</li>
+<li>Driveways & Pathways</li>
+<li>Commercial Projects</li>
+<li>Remote & Regional Work</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#about" class="text-white/50 hover:text-brand transition">About Us</a></li>
+<li><a href="#services" class="text-white/50 hover:text-brand transition">Services</a></li>
+<li><a href="#projects" class="text-white/50 hover:text-brand transition">Projects</a></li>
+<li><a href="#testimonials" class="text-white/50 hover:text-brand transition">Testimonials</a></li>
+<li><a href="#faq" class="text-white/50 hover:text-brand transition">FAQ</a></li>
+<li><a href="#contact" class="text-white/50 hover:text-brand transition">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-4">Contact</h4>
+<ul class="space-y-3 text-white/50 text-sm">
+<li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-brand"></i><a href="tel:0459722155" class="hover:text-brand transition">0459 722 155</a></li>
+<li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-brand"></i><a href="mailto:hinterlandcivilcairns@outlook.com" class="hover:text-brand transition">hinterlandcivilcairns@outlook.com</a></li>
+<li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-brand"></i>Cairns & Hinterland, QLD</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8 text-center">
+<p class="text-white/40 text-sm">&copy; 2026 Hinterland Civil Concrete. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<!-- Floating Get a Quote Button (mobile only) -->
+<a href="#contact" class="floating-quote bg-brand hover:bg-brand/90 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-brand/40 transition">
+<i data-lucide="message-square" class="w-6 h-6"></i>
+</a>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+navbar.classList.add('scrolled');
+
+// Mobile menu
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+});
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const chevron = btn.querySelector('.faq-chevron');
+  answer.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// Services accordion
+function openService(index, btn) {
+  document.querySelectorAll('.service-acc-btn').forEach(b => {
+    b.classList.remove('active');
+    b.querySelector('.service-acc-content').classList.remove('open');
+    b.querySelector('.faq-chevron').classList.remove('open');
+  });
+  btn.classList.add('active');
+  btn.querySelector('.service-acc-content').classList.add('open');
+  btn.querySelector('.faq-chevron').classList.add('open');
+  lucide.createIcons();
+}
+
+// Lightbox
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      counter.textContent = Math.floor(current);
+    }, 16);
+  });
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Trigger counters when stats bar is visible
+      if (entry.target.querySelector('.counter')) animateCounters();
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>
