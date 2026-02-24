@@ -16,6 +16,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- PostHog Analytics -->
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture identify".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_oIRDJWoxFNjWcoH7IAAKDnNcZgK19bSl3WqwnCKPLrQ', {
+    api_host: 'https://us.i.posthog.com',
+    person_profiles: 'always'
+});
+</script>
 <script>
 tailwind.config = {
   theme: {
@@ -93,6 +102,10 @@ nav.scrolled { background: rgba(18,21,22,0.97); backdrop-filter: blur(12px); box
 /* Featured project */
 .featured-project { background-image: linear-gradient(to right, rgba(18,21,22,0.9) 40%, rgba(18,21,22,0.2)), url('images/hinterland-civil-project-31.jpg'); background-size: cover; background-position: center; }
 
+/* DreamTech link */
+.dt-link:hover { background: linear-gradient(135deg, #3b82f6, #10b981, #8b5cf6, #3b82f6); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: dt-gradient 8s ease infinite; }
+@keyframes dt-gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
 /* Floating quote btn */
 .floating-quote { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; animation: pulse-glow 2s infinite; }
 @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(17,170,212,0.5); } 50% { box-shadow: 0 0 0 12px rgba(17,170,212,0); } }
@@ -119,7 +132,7 @@ nav.scrolled { background: rgba(18,21,22,0.97); backdrop-filter: blur(12px); box
 <a href="#testimonials" class="text-white/80 hover:text-brand transition text-sm font-medium">Testimonials</a>
 <a href="#faq" class="text-white/80 hover:text-brand transition text-sm font-medium">FAQ</a>
 <a href="#contact" class="text-white/80 hover:text-brand transition text-sm font-medium">Contact</a>
-<a href="tel:0459722155" class="bg-brand hover:bg-brand/90 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition flex items-center gap-2">
+<a href="tel:0459722155" onclick="posthog.capture('phone_click', {location: 'nav'})" class="bg-brand hover:bg-brand/90 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition flex items-center gap-2">
 <i data-lucide="phone" class="w-4 h-4"></i> 0459 722 155
 </a>
 </div>
@@ -137,7 +150,7 @@ nav.scrolled { background: rgba(18,21,22,0.97); backdrop-filter: blur(12px); box
 <a href="#testimonials" class="block text-white/80 hover:text-brand transition font-medium mobile-link">Testimonials</a>
 <a href="#faq" class="block text-white/80 hover:text-brand transition font-medium mobile-link">FAQ</a>
 <a href="#contact" class="block text-white/80 hover:text-brand transition font-medium mobile-link">Contact</a>
-<a href="tel:0459722155" class="block bg-brand text-white text-center px-5 py-3 rounded-lg font-semibold mt-4">Call 0459 722 155</a>
+<a href="tel:0459722155" onclick="posthog.capture('phone_click', {location: 'mobile_menu'})" class="block bg-brand text-white text-center px-5 py-3 rounded-lg font-semibold mt-4">Call 0459 722 155</a>
 </div>
 </div>
 </nav>
@@ -157,8 +170,8 @@ Expert Concreters<br>in <span class="gradient-text">Cairns</span>
 Local family business with 20 years experience. Professional civil concrete services for residential, commercial & infrastructure projects across Far North Queensland.
 </p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a href="#contact" class="bg-brand hover:bg-brand/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center">Get a Free Quote</a>
-<a href="tel:0459722155" class="border-2 border-white/25 hover:border-white/50 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center flex items-center justify-center gap-2">
+<a href="#contact" onclick="posthog.capture('cta_click', {location: 'hero', cta: 'get_quote'})" class="bg-brand hover:bg-brand/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center">Get a Free Quote</a>
+<a href="tel:0459722155" onclick="posthog.capture('phone_click', {location: 'hero'})" class="border-2 border-white/25 hover:border-white/50 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center flex items-center justify-center gap-2">
 <i data-lucide="phone" class="w-5 h-5"></i> Call 0459 722 155
 </a>
 </div>
@@ -398,7 +411,7 @@ Local family business with 20 years experience. Professional civil concrete serv
 <div><p class="text-white/50 text-xs uppercase tracking-wider">Completed</p><p class="text-white font-semibold">2024</p></div>
 </div>
 </div>
-<a href="#contact" class="inline-flex items-center gap-2 bg-brand hover:bg-brand/90 text-white px-6 py-3 rounded-xl font-semibold mt-6 transition">
+<a href="#contact" onclick="posthog.capture('cta_click', {location: 'featured_project', cta: 'start_project'})" class="inline-flex items-center gap-2 bg-brand hover:bg-brand/90 text-white px-6 py-3 rounded-xl font-semibold mt-6 transition">
 Start Your Project <i data-lucide="arrow-right" class="w-5 h-5"></i>
 </a>
 </div>
@@ -590,8 +603,8 @@ How long should concrete cure before use?
 <h2 class="text-4xl sm:text-5xl lg:text-7xl font-900 text-white mb-6 display-heading">Ready to Start<br>Your <span class="gradient-text">Project</span>?</h2>
 <p class="text-white/80 text-lg sm:text-xl mb-10 max-w-2xl mx-auto">Get in touch with Pete for a free, no-obligation quote. We're ready to bring your concrete project to life.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a href="mailto:hinterlandcivilcairns@outlook.com" class="bg-white text-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/90 transition shadow-xl">Get a Free Quote</a>
-<a href="tel:0459722155" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition flex items-center justify-center gap-2">
+<a href="mailto:hinterlandcivilcairns@outlook.com" onclick="posthog.capture('cta_click', {location: 'cta_section', cta: 'get_quote'})" class="bg-white text-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/90 transition shadow-xl">Get a Free Quote</a>
+<a href="tel:0459722155" onclick="posthog.capture('phone_click', {location: 'cta_section'})" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition flex items-center justify-center gap-2">
 <i data-lucide="phone" class="w-5 h-5"></i> Call 0459 722 155
 </a>
 </div>
@@ -641,14 +654,15 @@ How long should concrete cure before use?
 </ul>
 </div>
 </div>
-<div class="border-t border-white/10 pt-8 text-center">
-<p class="text-white/40 text-sm">&copy; 2026 Hinterland Civil Concrete. All rights reserved.</p>
+<div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-white/25 text-sm">&copy; 2026 Hinterland Civil Concrete. All rights reserved.</p>
+<p class="text-white/10 text-[11px]">Website by <a href="https://dreamtechsolutions.com.au" target="_blank" class="dt-link text-white/15 no-underline transition-all">DreamTech Solutions</a></p>
 </div>
 </div>
 </footer>
 
 <!-- Floating Get a Quote Button (mobile only) -->
-<a href="#contact" class="floating-quote bg-brand hover:bg-brand/90 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-brand/40 transition">
+<a href="#contact" onclick="posthog.capture('floating_cta_click')" class="floating-quote bg-brand hover:bg-brand/90 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-brand/40 transition">
 <i data-lucide="message-square" class="w-6 h-6"></i>
 </a>
 

@@ -486,15 +486,8 @@ nav.scrolled {
 @media (min-width: 1024px) { .float-cta { display: none; } }
 
 /* ---- DreamTech link ---- */
-.dt-link:hover {
-  background: linear-gradient(135deg, #FF6B00, #FFB800, #FF6B00);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: dt-shift 4s ease infinite;
-}
-@keyframes dt-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.dt-link:hover { background: linear-gradient(135deg, #3b82f6, #10b981, #8b5cf6, #3b82f6); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: dt-gradient 8s ease infinite; }
+@keyframes dt-gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
 /* ---- Counters ---- */
 .stat-block {
@@ -1159,8 +1152,8 @@ Start Your Project <i data-lucide="arrow-right" class="w-5 h-5"></i>
 </div>
 </div>
 <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-<p class="text-white/20 text-sm">&copy; 2026 Hinterland Civil Concrete. All rights reserved.</p>
-<p class="text-white/8 text-[11px]">Website by <a href="https://dreamtechsolutions.com.au" target="_blank" class="dt-link text-white/12 no-underline transition-all">DreamTech Solutions</a></p>
+<p class="text-white/25 text-sm">&copy; 2026 Hinterland Civil Concrete. All rights reserved.</p>
+<p class="text-white/10 text-[11px]">Website by <a href="https://dreamtechsolutions.com.au" target="_blank" class="dt-link text-white/15 no-underline transition-all">DreamTech Solutions</a></p>
 </div>
 </div>
 </footer>
